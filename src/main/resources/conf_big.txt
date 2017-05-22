@@ -1,0 +1,51 @@
+# POSITIONS: <1; 20> X <1; 20>
+# warehouses amount
+10
+# stores amount
+30
+# warehouses
+# posX posY size
+# total size: 351
+1 1 45
+3 2 32
+20 1 40
+18 7 25
+12 3 29
+17 14 25
+9 13 37
+7 8 35
+9 10 33
+9 6 50
+# stores
+# posX posY goodName1 goodAmount1 goodName2 goodAmount2 ...
+# total amount:
+1 2 Bike 3 Ski 4
+5 2 Eggs 10
+6 3 Car 1 Scooter 3 Swimsuit 5 Pump 2
+4 10 Butter 3 Bread 10
+5 15 Door 3 Glass 2
+16 5 Car 2 Doll 6 BoardGame 5
+18 2 Bed 2 Pillow 6 Wardrobe 10
+13 4 Table 5 Chair 30
+12 17 TV 5 Radio 3 DVD 15
+4 16 Fridge 3 Cooker 2
+3 12 PC 7 AlarmClock 3
+5 4 Cucumber 10 Tomato 12
+13 2 Painting 1 Movie 6
+8 7 Flower 6 Lamp 2
+9 10 Chair 5 Desk 2
+11 11 Glass 12 PhotoFrame 3
+19 7 Clock 2 Battery 3
+20 20 Book 3 Notebook 2 Pen 9
+20 1 Water 3 Juice 3
+1 20 Phone 3 Router 5
+17 3 Calculator 3 Ruler 4
+17 9 Mirror 2
+17 12 Keyboard 4 Mouse 2
+14 1 Trousers 3 Blouse 2
+14 5 Dress 3 Shoes 2
+14 6 TShirt 2 Hat 6
+14 8 Beer 6 Wine 9
+12 8 Blackboard 2 Chalk 15
+12 6 Backpack 3
+10 10 Ball 3 Rollers 3 Skateboard 1

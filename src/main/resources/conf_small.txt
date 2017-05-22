@@ -1,0 +1,13 @@
+# warehouses amount
+2
+# stores amount
+3
+# warehouses
+# posX posY size
+1 1 15
+3 2 15
+# stores
+# posX posY goodName1 goodAmount1 goodName2 goodAmount2 ...
+1 2 Bike 3 Ski 4
+5 2 Eggs 10
+6 3 Car 1 Scooter 3 Something 5 SomethingElse 2

@@ -1,0 +1,11 @@
+#stockProviders Amount
+3
+#factoriesAmount
+1
+#stockProviderPosition x y size
+1 1 10
+10 10 10
+50 50 100
+#factories positiion x y and demands
+3 3 drewno 10 metal 20
+

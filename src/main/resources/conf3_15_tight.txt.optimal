@@ -1,0 +1,17 @@
+Sol #28668978 -> score = 64.8174
+Store (0, 0) gets from Wareh (1, 1) T01 [2]; cost = 2.82843
+Store (0, 0) gets from Wareh (1, 1) T02 [2]; cost = 2.82843
+Store (0, 0) gets from Wareh (1, 1) T03 [3]; cost = 4.24264
+Store (0, 1) gets from Wareh (1, 1) T04 [3]; cost = 3
+Store (0, 1) gets from Wareh (2, 2) T05 [1]; cost = 2.23607
+Store (0, 1) gets from Wareh (2, 2) T06 [1]; cost = 2.23607
+Store (0, 2) gets from Wareh (3, 3) T07 [1]; cost = 3.16228
+Store (0, 2) gets from Wareh (2, 2) T08 [4]; cost = 8
+Store (0, 2) gets from Wareh (2, 2) T09 [2]; cost = 4
+Store (0, 3) gets from Wareh (2, 2) T10 [2]; cost = 4.47214
+Store (0, 3) gets from Wareh (3, 3) T11 [2]; cost = 6
+Store (0, 3) gets from Wareh (3, 3) T12 [2]; cost = 6
+Store (0, 4) gets from Wareh (3, 3) T13 [1]; cost = 3.16228
+Store (0, 4) gets from Wareh (3, 3) T14 [2]; cost = 6.32456
+Store (0, 4) gets from Wareh (3, 3) T15 [2]; cost = 6.32456
+Warehouses: 10/10  10/10  10/10
