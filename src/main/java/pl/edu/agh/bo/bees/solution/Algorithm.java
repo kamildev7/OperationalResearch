@@ -28,7 +28,7 @@ public class Algorithm {
         InputStream is = null;
 
         try {
-            is = new FileInputStream("C:/Users/Kamil/SkyDrive/Studia Semestr 6/6 BO/projektPoprawiony2/src/main/resources/algorithm.properties");
+            is = new FileInputStream("C:/Users/Kamil/SkyDrive/Studia Semestr 6/6 BO/BO/src/main/resources/algorithm.properties");
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -88,21 +88,20 @@ public class Algorithm {
             }
         }
 
-        for (int i = 0; i < this.selectedSites - this.bestSites; i++) {
-            swarmsForSelectedSites.get(i).goToSite(selectedSites.get(i));
-            if (swarmsForSelectedSites.get(i).getBest().evaluate() < bestSolution.evaluate()) {
-                bestSolution = swarmsForSelectedSites.get(i).getBest();
-            }
-        }
-        for (int i = 0; i < this.bestSites; i++) {
-            swarmsForBestSites.get(i).goToSite(bestSites.get(i));
-            if (swarmsForBestSites.get(i).getBest().evaluate() < bestSolution.evaluate()) {
-                bestSolution = swarmsForBestSites.get(i).getBest();
-            }
-        }
-
+        bestSolution = chooseBestSolution(this.selectedSites - this.bestSites, swarmsForSelectedSites, selectedSites, bestSolution);
+        bestSolution = chooseBestSolution(this.bestSites, swarmsForBestSites, bestSites, bestSolution);
         if (callback != null)
             callback.onAlgorithmEnd(bestSolution);
+    }
+
+    private Solution chooseBestSolution(int sitesCount, List<Swarm> swarms, List<Solution> solutions, Solution bestSolution) {
+        for (int i = 0; i < sitesCount; i++) {
+            swarms.get(i).goToSite(solutions.get(i));
+            if (swarms.get(i).getBest().evaluate() < bestSolution.evaluate()) {
+                bestSolution = swarms.get(i).getBest();
+            }
+        }
+        return bestSolution;
     }
 
     private List<Swarm> prepareSwarms(Input input, int sites, int beesPerSite) {

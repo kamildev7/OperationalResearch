@@ -27,13 +27,20 @@ public class StockProvider {
     }
 
     @Override
-    public boolean equals(Object object) {
-        if(object instanceof StockProvider) {
-            StockProvider other = (StockProvider) object;
-            return this.position.getX() == other.getPosition().getX() &&
-                    this.position.getY() == other.getPosition().getY() &&
-                    this.size == other.getSize();
-        } else return false;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        StockProvider that = (StockProvider) o;
+
+        if (getSize() != that.getSize()) return false;
+        return getPosition() != null ? getPosition().equals(that.getPosition()) : that.getPosition() == null;
     }
 
+    @Override
+    public int hashCode() {
+        int result = getPosition() != null ? getPosition().hashCode() : 0;
+        result = 31 * result + getSize();
+        return result;
+    }
 }

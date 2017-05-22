@@ -37,7 +37,7 @@ public class MainWindowController {
     }
     public void show(){
         try {
-        	URL location = new URL("file:///C:/Users/Kamil/SkyDrive/Studia Semestr 6/6 BO/projektPoprawiony2/src/main/java/pl/edu/agh/bo/bees/view/MainWindow.fxml");
+        	URL location = new URL("file:///C:/Users/Kamil/SkyDrive/Studia Semestr 6/6 BO/BO/src/main/java/pl/edu/agh/bo/bees/view/MainWindow.fxml");
             FXMLLoader loader = new FXMLLoader(location);
             loader.setController(this);
             BorderPane rootLayout = (BorderPane) loader.load();
