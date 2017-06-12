@@ -43,7 +43,7 @@ public class Parser {
                 }
                 String[] buf = buffer.split(" ");
                 Position position = new Position(Integer.valueOf(buf[0]), Integer.valueOf(buf[1]));
-                StockProvider sp = new StockProvider(Integer.valueOf(buf[2]), position);
+                StockProvider sp = new StockProvider(Integer.valueOf(buf[2]), position, buf[3]);
                 input.addStockProvider(i, sp);
             }
 

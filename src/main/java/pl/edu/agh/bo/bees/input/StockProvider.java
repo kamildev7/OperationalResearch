@@ -5,10 +5,12 @@ public class StockProvider {
 
     private Position position;
     private int size;
+    private String goodName;
 
-    public StockProvider(int size, Position position) {
+    public StockProvider(int size, Position position, String goodName) {
         this.size = size;
         this.position = position;
+        this.goodName = goodName;
     }
 
     public Position getPosition() {
@@ -19,10 +21,15 @@ public class StockProvider {
         return size;
     }
 
+    public String getGoodName() {
+        return goodName;
+    }
+
     @Override
     public String toString() {
         String result = String.format("\tPosition: (%d, %d)\n", position.getX(), position.getY());
         result += String.format("\tSize: %d\n", size);
+        result += String.format("\tGood: %s\n", goodName)
         return result;
     }
 
