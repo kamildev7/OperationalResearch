@@ -6,10 +6,9 @@ import java.io.*;
 
 public class Parser {
 
-    File filename;
-    FileInputStream fileInputStream;
-    BufferedReader br;
-    String buffer;
+    private File filename;
+    private FileInputStream fileInputStream;
+    private BufferedReader br;
 
     public Parser(File filename) {
         this.filename = filename;
@@ -20,8 +19,8 @@ public class Parser {
 
         try {
             // stockProviders amount
-            buffer = br.readLine();
-            while(buffer.charAt(0) == '#') {
+            String buffer = br.readLine();
+            while (buffer.charAt(0) == '#') {
                 buffer = br.readLine();
             }
             int stockProvidersAmount = Integer.valueOf(buffer);
@@ -29,7 +28,7 @@ public class Parser {
 
             // factories amount
             buffer = br.readLine();
-            while(buffer.charAt(0) == '#') {
+            while (buffer.charAt(0) == '#') {
                 buffer = br.readLine();
             }
             int factoriesAmount = Integer.valueOf(buffer);
@@ -38,7 +37,7 @@ public class Parser {
             // stockProvider position and size
             for (int i = 0; i < stockProvidersAmount; i++) {
                 buffer = br.readLine();
-                while(buffer.charAt(0) == '#') {
+                while (buffer.charAt(0) == '#') {
                     buffer = br.readLine();
                 }
                 String[] buf = buffer.split(" ");
@@ -48,17 +47,17 @@ public class Parser {
             }
 
             // factories position and demands
-            for(int i = 0; i < factoriesAmount; i++) {
+            for (int i = 0; i < factoriesAmount; i++) {
                 buffer = br.readLine();
-                while(buffer.charAt(0) == '#') {
+                while (buffer.charAt(0) == '#') {
                     buffer = br.readLine();
                 }
                 String[] buf = buffer.split(" ");
                 Position position = new Position(Integer.valueOf(buf[0]), Integer.valueOf(buf[1]));
                 Factory factory = new Factory(position);
                 input.addFactory(i, factory);
-                for(int j = 2; j < buf.length; j += 2) {
-                    Demand demand = new Demand(factory, buf[j], Integer.valueOf(buf[j+1]));
+                for (int j = 2; j < buf.length; j += 2) {
+                    Demand demand = new Demand(factory, buf[j], Integer.valueOf(buf[j + 1]));
                     input.addDemand(demand);
                 }
             }

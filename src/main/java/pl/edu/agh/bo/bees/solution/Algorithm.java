@@ -1,10 +1,8 @@
 package pl.edu.agh.bo.bees.solution;
 
-import pl.edu.agh.bo.bees.Main;
 import pl.edu.agh.bo.bees.input.Input;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -28,10 +26,8 @@ public class Algorithm {
         InputStream is = null;
 
         try {
-            is = new FileInputStream("C:/Users/Kamil/SkyDrive/Studia Semestr 6/6 BO/BO/src/main/resources/algorithm.properties");
+            is = new FileInputStream("E:\\VI\\bo\\OperationalResearch\\src\\main\\resources\\algorithm.properties");
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -39,12 +35,12 @@ public class Algorithm {
         properties.load(is);
         is.close();
 
-        selectedSites =Integer.valueOf(properties.getProperty("SELECTED_SITES"));
-        bestSites =Integer.valueOf(properties.getProperty("BEST_SITES"));
-        scouts =Integer.valueOf(properties.getProperty("SCOUTS"));
-        beesForSelectedSites =Integer.valueOf(properties.getProperty("BEES_FOR_SELECTED_SITES"));
-        beesForBestSites =Integer.valueOf(properties.getProperty("BEES_FOR_BEST_SITES"));
-        iterations =Integer.valueOf(properties.getProperty("ITERATIONS"));
+        selectedSites = Integer.valueOf(properties.getProperty("SELECTED_SITES"));
+        bestSites = Integer.valueOf(properties.getProperty("BEST_SITES"));
+        scouts = Integer.valueOf(properties.getProperty("SCOUTS"));
+        beesForSelectedSites = Integer.valueOf(properties.getProperty("BEES_FOR_SELECTED_SITES"));
+        beesForBestSites = Integer.valueOf(properties.getProperty("BEES_FOR_BEST_SITES"));
+        iterations = Integer.valueOf(properties.getProperty("ITERATIONS"));
     }
 
     public void calculate(SolutionCallback callback) {
@@ -83,7 +79,7 @@ public class Algorithm {
             if (callback != null)
                 callback.onSolution(bestSites.get(0), bestSolution);
 
-            if(++iterations >= this.iterations) {
+            if (++iterations >= this.iterations) {
                 stop = true;
             }
         }
@@ -126,12 +122,13 @@ public class Algorithm {
         swarms1.forEach(swarm -> bestSitesCandidates.addAll(swarm.getBest(selectedSites)));
         swarms2.forEach(swarm -> bestSitesCandidates.addAll(swarm.getBest(selectedSites)));
         Collections.sort(bestSitesCandidates);
-        return bestSitesCandidates.subList(0, selectedSites+bestSites);
+        return bestSitesCandidates.subList(0, selectedSites + bestSites);
     }
 
     public int getSelectedSites() {
         return selectedSites;
     }
+
     public void setSelectedSites(int selectedSites) {
         this.selectedSites = selectedSites;
     }
@@ -139,6 +136,7 @@ public class Algorithm {
     public int getBestSites() {
         return bestSites;
     }
+
     public void setBestSites(int bestSites) {
         this.bestSites = bestSites;
     }
@@ -146,6 +144,7 @@ public class Algorithm {
     public int getScouts() {
         return scouts;
     }
+
     public void setScouts(int scouts) {
         this.scouts = scouts;
     }
@@ -153,6 +152,7 @@ public class Algorithm {
     public int getBeesForSelectedSites() {
         return beesForSelectedSites;
     }
+
     public void setBeesForSelectedSites(int beesForSelectedSites) {
         this.beesForSelectedSites = beesForSelectedSites;
     }
@@ -160,6 +160,7 @@ public class Algorithm {
     public int getBeesForBestSites() {
         return beesForBestSites;
     }
+
     public void setBeesForBestSites(int beesForBestSites) {
         this.beesForBestSites = beesForBestSites;
     }
@@ -167,6 +168,7 @@ public class Algorithm {
     public int getIterations() {
         return iterations;
     }
+
     public void setIterations(int iterations) {
         this.iterations = iterations;
     }

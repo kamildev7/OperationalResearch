@@ -11,7 +11,7 @@ public class Input {
     private int factoriesAmount;
     private Factory[] factories;
     private List<Demand> demands = new LinkedList<>();
-    
+
     public void setStockProvidersAmount(int stockProvidersAmount) {
         this.stockProvidersAmount = stockProvidersAmount;
         this.stockProviders = new StockProvider[stockProvidersAmount];
@@ -57,12 +57,12 @@ public class Input {
     @Override
     public String toString() {
         String result = "";
-        for(int i = 0; i < stockProvidersAmount; i++) {
+        for (int i = 0; i < stockProvidersAmount; i++) {
             result += String.format("StockProvider #%d:\n", i + 1);
             result += stockProviders[i].toString();
         }
 
-        for(Demand demand : demands) {
+        for (Demand demand : demands) {
             result += demand.toString();
         }
 
@@ -70,15 +70,15 @@ public class Input {
     }
 
     public boolean isInputOK() {
-        if(stockProviders==null || demands== null){
+        if (stockProviders == null || demands == null) {
             return false;
         }
         int size = 0;
         int demandsAmount = 0;
-        for(StockProvider sp : stockProviders) {
+        for (StockProvider sp : stockProviders) {
             size += sp.getSize();
         }
-        for(Demand demand : demands) {
+        for (Demand demand : demands) {
             demandsAmount += demand.getGoodAmount();
         }
         return size >= demandsAmount;

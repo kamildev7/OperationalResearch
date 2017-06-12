@@ -1,62 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.LineChart?>
-<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 <BorderPane prefWidth="800.0" prefHeight="800" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
     <padding>
         <Insets top="15" left="15" right="15" bottom="15"/>
     </padding>
     <top>
-        <HBox  alignment="CENTER" >
-        	<Button text="Choose configuration file" fx:id="fileButton" onAction="#handleFileButtonAction"/>
-        	<padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
-        </HBox>
     </top>
     <center>    	
         <VBox>
         	<HBox  alignment="CENTER" >
-	        	<GridPane alignment="CENTER">
+	        	<GridPane alignment="CENTER" hgap="20">
 	                <Label text=" SELECTED SITES"  GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-	                <Slider fx:id="sSitesSld" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-	                <TextField fx:id="sSitesTxt" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+	                <TextField fx:id="sSitesTxt" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 	
 	                <Label text=" BEST SITES" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-	                <Slider fx:id="bSitesSld" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-	                <TextField fx:id="bSitesTxt" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+	                <TextField fx:id="bSitesTxt" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
 	
 	                <Label text=" SCOUTS" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-	                <Slider fx:id="scoutsSld" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-	                <TextField fx:id="scoutsTxt" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+	                <TextField fx:id="scoutsTxt" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 	
-	                <Label text=" BEES_FOR_SELECTED_SITES " GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-	                <Slider fx:id="beesForSSitesSld" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
-	                <TextField fx:id="beesForSSitesTxt" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
+	                <Label text=" BEES_FOR_SELECTED_SITES " GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+	                <TextField fx:id="beesForSSitesTxt" GridPane.rowIndex="0" GridPane.columnIndex="4"/>
 	
-	                <Label text=" BEES_FOR_BEST_SITES " GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-	                <Slider fx:id="beesForBSitesSld" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-	                <TextField fx:id="beesForBSitesTxt" GridPane.rowIndex="4" GridPane.columnIndex="2"/>
+	                <Label text=" BEES_FOR_BEST_SITES " GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+	                <TextField fx:id="beesForBSitesTxt" GridPane.rowIndex="1" GridPane.columnIndex="4"/>
 	
-	                <Label text=" ITERATIONS " GridPane.rowIndex="5" GridPane.columnIndex="0"/>
-	                <Slider fx:id="iterationsSld" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
-	                <TextField fx:id="iterationsTxt" GridPane.rowIndex="5" GridPane.columnIndex="2"/>
+	                <Label text=" ITERATIONS " GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+	                <TextField fx:id="iterationsTxt" GridPane.rowIndex="2" GridPane.columnIndex="4"/>
 	
 	            </GridPane>
 	        </HBox>
-            <HBox spacing="10">
-                <Label fx:id="factoriesLabel" />
-                <Label fx:id="factories" />
+
+
+
+            <HBox  alignment="CENTER" >
+                <Button text="Choose configuration file" fx:id="fileButton" onAction="#handleFileButtonAction"/>
+                <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
             </HBox>
-            <HBox spacing="10">
-                <Label fx:id="stockProvidersLabel" />
-                <Label fx:id="stockProviders" />
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label fx:id="factoriesLabel" alignment="CENTER"/>
+                <Label fx:id="factories" alignment="CENTER"/>
             </HBox>
-            <HBox alignment="CENTER">
+
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label fx:id="stockProvidersLabel" alignment="CENTER"/>
+                <Label fx:id="stockProviders"  alignment="CENTER"/>
+            </HBox>
+            <HBox>
                 <LineChart fx:id="lineChart">
-                    <xAxis><NumberAxis label="Iterations" tickUnit="1"/></xAxis>
-                    <yAxis><NumberAxis label="Cost" tickUnit="1"/></yAxis>
+                    <xAxis><NumberAxis label="Iterations" tickUnit="10" fx:id="xAxis"/></xAxis>
+                    <yAxis><NumberAxis label="Cost" tickUnit="10" fx:id="yAxis"/></yAxis>
+                </LineChart>
+                <LineChart fx:id="bestChart">
+                    <xAxis><NumberAxis label="Iterations" tickUnit="10" fx:id="xAxisBest"/></xAxis>
+                    <yAxis><NumberAxis label="Cost" tickUnit="10" fx:id="yAxisBest"/></yAxis>
                 </LineChart>
             </HBox>
             <VBox>

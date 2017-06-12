@@ -17,7 +17,7 @@ public class Demand {
         return goodAmount;
     }
 
-    public String getGoodName() {
+    private String getGoodName() {
         return goodName;
     }
 
@@ -41,10 +41,9 @@ public class Demand {
 
         Demand demand = (Demand) o;
 
-        if (getGoodAmount() != demand.getGoodAmount()) return false;
-        if (getFactory() != null ? !getFactory().equals(demand.getFactory()) : demand.getFactory() != null)
-            return false;
-        return getGoodName() != null ? getGoodName().equals(demand.getGoodName()) : demand.getGoodName() == null;
+        return getGoodAmount() == demand.getGoodAmount() && (getFactory() != null ?
+                getFactory().equals(demand.getFactory()) : demand.getFactory() == null) && (getGoodName() != null ?
+                getGoodName().equals(demand.getGoodName()) : demand.getGoodName() == null);
     }
 
     @Override

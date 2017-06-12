@@ -13,31 +13,24 @@ public class Solution implements Comparable<Solution> {
     private Map<Demand, StockProvider> solution = new HashMap<>();
     private CompletableFuture<Double> evaluation;
 
-    /**
-     * Creates random solution
-     */
-    public Solution(Input input) {
+    Solution(Input input) {
         int spsAmount = input.getStockProvidersAmount();
         Random random = new Random();
-        for(Demand demand : input.getDemands()) {
+        for (Demand demand : input.getDemands()) {
             int index = random.nextInt(spsAmount);
             solution.put(demand, input.getStockProvider(index));
         }
         evaluation = CompletableFuture.supplyAsync(this::doEvaluation);
     }
 
-    /**
-     * Creates solution similar to neighbour.
-     * Difference in two positions (swap).
-     */
-    public Solution(Solution neighbour) {
+    Solution(Solution neighbour) {
         Set<Demand> keySet = neighbour.getSolution().keySet();
-        for(Demand demand : keySet) {
+        for (Demand demand : keySet) {
             this.solution.put(demand, neighbour.getSolution().get(demand));
         }
 
         Set<StockProvider> values = new HashSet<>(solution.values());
-        if(values.size() > 1) {
+        if (values.size() > 1) {
             Random random = new Random();
             List<Demand> keys = new ArrayList<>(solution.keySet());
             Demand key1 = keys.get(random.nextInt(keys.size()));
@@ -67,29 +60,29 @@ public class Solution implements Comparable<Solution> {
     }
 
     private double doEvaluation() {
-        if(isProper() > 1 || isProper() < 0) {
+        if (isProper() > 1 || isProper() < 0) {
             return Double.MAX_VALUE;
         }
         Set<Demand> demandSet = solution.keySet();
         double result = 0;
 
-        for(Demand demand : demandSet) {
+        for (Demand demand : demandSet) {
             result += demand.getFactory().getPosition().getDistance(solution.get(demand).getPosition()) * demand.getGoodAmount();
         }
 
         return result;
     }
 
-    public Map<Demand, StockProvider> getSolution() {
+    private Map<Demand, StockProvider> getSolution() {
         return this.solution;
     }
 
     private int isProper() {
         Map<StockProvider, Integer> map = new HashMap<>();
         Set<Demand> keys = solution.keySet();
-        for(Demand demand : keys) {
+        for (Demand demand : keys) {
             StockProvider sp = solution.get(demand);
-            if(map.containsKey(sp)) {
+            if (map.containsKey(sp)) {
                 int value = map.get(sp) + demand.getGoodAmount();
                 map.put(sp, value);
             } else {
@@ -98,7 +91,8 @@ public class Solution implements Comparable<Solution> {
         }
 
         int result = 0;
-        if(solution.keySet().size() > 50) {
+
+        if (solution.keySet().size() > 50) {
             Set<StockProvider> keys2 = map.keySet();
             for (StockProvider sp : keys2) {
                 if (map.get(sp) > sp.getSize()) result++;
@@ -117,7 +111,7 @@ public class Solution implements Comparable<Solution> {
     public String toString() {
         String result = "";
         Set<Demand> demandSet = solution.keySet();
-        for(Demand demand : demandSet) {
+        for (Demand demand : demandSet) {
             result += String.format("%s\n%s\n", demand.toString(), solution.get(demand).toString());
         }
 
@@ -132,8 +126,8 @@ public class Solution implements Comparable<Solution> {
     public int compareTo(Solution other) {
         double thisValue = evaluate();
         double otherValue = other.evaluate();
-        if(thisValue == otherValue) return 0;
-        else if(thisValue > otherValue) return 1;
+        if (thisValue == otherValue) return 0;
+        else if (thisValue > otherValue) return 1;
         else return -1;
     }
 }

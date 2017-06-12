@@ -6,19 +6,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Swarm {
+class Swarm {
     private ArrayList<Solution> bees;
     private int beesQuantity;
     private Input input;
 
-    public Swarm(int beesQuantity, Input input) {
+    Swarm(int beesQuantity, Input input) {
         this.input = input;
         this.beesQuantity = beesQuantity;
         this.bees = new ArrayList<>(beesQuantity);
         scout();
     }
 
-    public void scout() {
+    void scout() {
         bees = new ArrayList<>(beesQuantity);
         for (int i = 0; i < beesQuantity; i++) {
             bees.add(new Solution(input));
@@ -26,7 +26,7 @@ public class Swarm {
         bees.parallelStream().forEach(Solution::evaluate);
     }
 
-    public void goToSite(Solution site) {
+    void goToSite(Solution site) {
         bees = new ArrayList<>(beesQuantity);
         for (int i = 0; i < beesQuantity; i++) {
             bees.add(new Solution(site));
@@ -34,20 +34,20 @@ public class Swarm {
         bees.parallelStream().forEach(Solution::evaluate);
     }
 
-    public Solution getBest() {
+    Solution getBest() {
         return getBest(1).get(0);
     }
 
-    public List<Solution> getBest(int n) {
+    List<Solution> getBest(int n) {
         Collections.sort(bees);
-        if(bees.size() >= n) {
+        if (bees.size() >= n) {
             return bees.subList(0, n);
         } else {
             return bees;
         }
     }
 
-    public List<Solution> getAllBees() {
+    List<Solution> getAllBees() {
         return bees;
     }
 }

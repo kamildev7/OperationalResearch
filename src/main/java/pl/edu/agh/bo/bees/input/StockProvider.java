@@ -29,7 +29,7 @@ public class StockProvider {
     public String toString() {
         String result = String.format("\tPosition: (%d, %d)\n", position.getX(), position.getY());
         result += String.format("\tSize: %d\n", size);
-        result += String.format("\tGood: %s\n", goodName)
+        result += String.format("\tGood: %s\n", goodName);
         return result;
     }
 
@@ -40,8 +40,8 @@ public class StockProvider {
 
         StockProvider that = (StockProvider) o;
 
-        if (getSize() != that.getSize()) return false;
-        return getPosition() != null ? getPosition().equals(that.getPosition()) : that.getPosition() == null;
+        return getSize() == that.getSize() && (getPosition() != null ?
+                getPosition().equals(that.getPosition()) : that.getPosition() == null);
     }
 
     @Override

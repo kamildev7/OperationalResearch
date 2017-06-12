@@ -11,11 +11,11 @@ public class Position {
         this.y = y;
     }
 
-    public int getX() {
+    int getX() {
         return x;
     }
 
-    public int getY() {
+    int getY() {
         return y;
     }
 
@@ -30,8 +30,7 @@ public class Position {
 
         Position position = (Position) o;
 
-        if (getX() != position.getX()) return false;
-        return getY() == position.getY();
+        return getX() == position.getX() && getY() == position.getY();
     }
 
     @Override
